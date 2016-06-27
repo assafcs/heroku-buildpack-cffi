@@ -12,6 +12,10 @@ echo $BUILD_DIR
 
 echo '-----> Rewriting libffi.pc'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
+echo '-----> 2'
 sed -e "s%/usr%/app/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}/x86_64-linux-gnu%" -e "s%Libs:%Libs: -L\${libdir}%" < $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
+echo '-----> 3'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib
-cp $BUILD_DIR/.apt/usr/lib/libffi* $BUILD_DIR/.heroku/vendor/lib
+echo '-----> 4'
+cp $BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu/pkgconfig/libffi* $BUILD_DIR/.heroku/vendor/lib
+echo '-----> 5'
